@@ -456,7 +456,15 @@ comfast_cf-e530n: qca953x_common
 	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
-
+	
+comfast_cf-wr752ac_v1: qca953x_common
+	@$(call config_init,Comfast CF-WR752AC-V1,cf-wr752ac_v1,16,17,1,QCA_QCA9531_SOC)
+	@$(call define_add,CONFIG_FOR_COMFAST_CF_WR752AC_V1,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
+	@$(call define_add,CONFIG_PCI,1)	
+	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
+	
 creatcomm-technology_d3321: ar933x_common
 	@$(call config_init,CreatComm Technology D3321,d3321,8,12,1,QCA_AR9331_SOC)
 	@$(call define_add,CONFIG_FOR_CREATCOMM_D3321,1)

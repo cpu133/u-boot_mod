@@ -1,0 +1,74 @@
+https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=cd510e775bc7c806b3ad6981221258385554b9e8
+
+
+
+author	Roman Hampel <rhamp@arcor.de>	
+Fri, 20 Mar 2020 11:32:30 -0500 (17:32 +0100)
+committer	Adrian Schmutzler <freifunk@adrianschmutzler.de>	
+Wed, 8 Apr 2020 18:06:37 -0500 (01:06 +0200)
+commit	cd510e775bc7c806b3ad6981221258385554b9e8
+tree	15cc47f1513a932e81b8bf9d7479b85d8967e29f	tree | snapshot
+parent	b299002877c801202c3b61d5e09865e88f506176	commit | diff
+ath79: add support for Comfast CF-WR752AC v1
+
+Specifications:
+
+- Qualcomm QCA9531 + QCA9886
+- dual band, antenna 2*3dBi
+- Output power 50mW (17dBm)
+- 1x 10/100 Mbps LAN RJ45
+- 128 MB RAM / 16 MB FLASH (w25q128)
+- 3 LEDs (red/green/blue)
+  incorporated in
+  "color wheel reset switch"
+- UART 115200 8N1
+
+Flashing instructions:
+
+ The U-boot bootloader contains a recovery HTTP server
+ to upload the  firmware. Push the reset button while powering the
+ device on and keep it pressed for ~10 seconds. The device's LEDs will
+ blink several times and the recovery page will be at
+ http://192.168.1.1; use it to upload the sysupgrade image.
+
+ Alternatively, the original firmware is based on OpenWrt so a
+ sysupgrade image can be installed via the stock web GUI. Settings from
+ the original firmware will be saved and restored on the new one, so a
+ factory reset will be needed. To do so, once the new firmware is flashed,
+ enter into failsafe mode by pressing the reset button several times during
+ the boot process, until it starts flashing. Once in failsafe mode, perform
+ a factory reset as usual.
+
+LED-Info:
+
+ The LEDs on the Comfast stock fw have a very proprietary behaviour,
+ corresponding to the user selected working mode (AP, ROUTER or REPEATER).
+ In the first two cases, only blue is used for status and LAN signaling. When
+ using the latter, blue is always off (except for sysupgrade), either red
+ signals bad rssi on master-link, or green good. Since the default working
+ mode of OpenWrt resembles that of a router/AP, the default behavior is
+ implemented accordingly.
+
+MAC addresses (art partition):
+
+location  address (example)    use in vendor firmware
+0x0       xx:xx:xx:xx:xc:f8 -> eth0
+0x6       xx:xx:xx:xx:xc:fa -> wlan5g (+2)
+0x1002    xx:xx:xx:xx:xc:f9 -> not used
+0x5006    xx:xx:xx:xx:xc:fb -> not used
+---       xx:xx:xx:xx:xd:02 -> wlan2g (+10)
+
+The same strange situation has already been observed and documented
+for COMFAST CF-E560AC.
+
+Signed-off-by: Roman Hampel <rhamp@arcor.de>
+Co-developed-by: Joao Albuquerque <joaohccalbu@gmail.com>
+Signed-off-by: Joao Albuquerque <joaohccalbu@gmail.com>
+[adjust and extend commit message, rebase, minor DTS adjustments,
+add correct MAC address for wmac, change RSSI LED names and behavior]
+Signed-off-by: Adrian Schmutzler <freifunk@adrianschmutzler.de>
+target/linux/ath79/dts/qca9531_comfast_cf-wr752ac-v1.dts	[new file with mode: 0644]	blob
+target/linux/ath79/generic/base-files/etc/board.d/01_leds		diff | blob | history
+target/linux/ath79/generic/base-files/etc/board.d/02_network		diff | blob | history
+target/linux/ath79/generic/base-files/etc/hotplug.d/firmware/11-ath10k-caldata		diff | blob | history
+target/linux/ath79/image/generic.mk		diff | blob | history

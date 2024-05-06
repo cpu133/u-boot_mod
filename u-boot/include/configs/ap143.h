@@ -45,6 +45,10 @@
       defined(CONFIG_FOR_COMFAST_CF_E530N)
 
 	#define CONFIG_QCA_GPIO_MASK_LED_ACT_L	GPIO11
+#elif defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)
+
+	#define CONFIG_QCA_GPIO_MASK_LED_ACT_L	GPIO11 | GPIO12 | GPIO15
+	#define CONFIG_QCA_GPIO_MASK_IN		GPIO17
 
 #elif defined(CONFIG_FOR_GAINSTRONG_OOLITE_V5_2_DEV)
 
@@ -198,7 +202,8 @@
 				"mtdparts=ath-nor0:448k(u-boot),64k(art),1280k(kernel),14528k(rootfs),64k(config)"
 
 #elif defined(CONFIG_FOR_COMFAST_CF_E314N) ||\
-      defined(CONFIG_FOR_COMFAST_CF_E320N_V2)
+      defined(CONFIG_FOR_COMFAST_CF_E320N_V2) ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)
 
 	#define CONFIG_BOOTARGS	"console=ttyS0,115200 root=31:03 "\
 				"rootfstype=jffs2 init=/sbin/init "\
@@ -302,6 +307,7 @@
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2)        ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)           ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)           ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)		 ||\
       defined(CONFIG_FOR_GAINSTRONG_OOLITE_V5_2)     ||\
       defined(CONFIG_FOR_GAINSTRONG_OOLITE_V5_2_DEV) ||\
       defined(CONFIG_FOR_TPLINK_MR22U_V1)            ||\
@@ -367,6 +373,7 @@
 #elif defined(CONFIG_FOR_COMFAST_CF_E314N)    ||\
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2) ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)    ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)  ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)
 
 	#define CFG_ENV_ADDR		0x9F018000
@@ -444,6 +451,7 @@
 #elif defined(CONFIG_FOR_COMFAST_CF_E314N)    ||\
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2) ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)    ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)  ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)
 
 	#define OFFSET_MAC_DATA_BLOCK		0x10000
@@ -528,6 +536,7 @@
 #if defined(CONFIG_FOR_COMFAST_CF_E314N)    ||\
     defined(CONFIG_FOR_COMFAST_CF_E320N_V2) ||\
     defined(CONFIG_FOR_COMFAST_CF_E520N)    ||\
+    defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1) ||\
     defined(CONFIG_FOR_COMFAST_CF_E530N)
 
 	#undef CONFIG_CMD_DHCP
@@ -551,6 +560,7 @@
 #elif defined(CONFIG_FOR_COMFAST_CF_E314N)    ||\
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2) ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)    ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)  ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)
 
 	#define WEBFAILSAFE_UPLOAD_ART_ADDRESS	(CFG_FLASH_BASE + 0x10000)
@@ -575,6 +585,7 @@
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2)        ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)           ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)           ||\
+	  defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)      ||\
       defined(CONFIG_FOR_GAINSTRONG_OOLITE_V5_2)     ||\
       defined(CONFIG_FOR_GAINSTRONG_OOLITE_V5_2_DEV) ||\
       defined(CONFIG_FOR_TPLINK_MR22U_V1)            ||\
@@ -646,6 +657,7 @@
       defined(CONFIG_FOR_COMFAST_CF_E320N_V2)        ||\
       defined(CONFIG_FOR_COMFAST_CF_E520N)           ||\
       defined(CONFIG_FOR_COMFAST_CF_E530N)           ||\
+      defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1)      ||\
       defined(CONFIG_FOR_TPLINK_MR22U_V1)            ||\
       defined(CONFIG_FOR_TPLINK_MR3420_V3)           ||\
       defined(CONFIG_FOR_TPLINK_MR6400_V1V2)         ||\
@@ -702,6 +714,7 @@
     !defined(CONFIG_FOR_COMFAST_CF_E320N_V2)   &&\
     !defined(CONFIG_FOR_COMFAST_CF_E520N)      &&\
     !defined(CONFIG_FOR_COMFAST_CF_E530N)      &&\
+    !defined(CONFIG_FOR_COMFAST_CF_WR752AC_V1) &&\
     !defined(CONFIG_FOR_GLINET_GL_AR300M_LITE) &&\
     !defined(CONFIG_FOR_GLINET_GL_AR750)       &&\
     !defined(CONFIG_FOR_P2W_CPE505N)           &&\

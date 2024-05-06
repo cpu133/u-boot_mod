@@ -50,13 +50,16 @@ export SUB_MAKE_CMD = $(MAKE) --silent --no-print-directory \
 # IMG_LZMA =
 
 # Define _absolute_ path to your toolchain directory, for example:
-# export TOOLCHAIN_DIR:=/home/user/toolchain-mips_24kc_gcc-5.4.0_musl-1.1.15
-# export PATH:=$(TOOLCHAIN_DIR)/bin:$(PATH)
+export TOOLCHAIN_DIR:=/mnt/h/cf-wr752ac/u-boot_mod/toolchain/staging_dir/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2
+export PATH:=$(TOOLCHAIN_DIR)/bin:$(PATH)
 
-ifndef CROSS_COMPILE
-  CROSS_COMPILE = mips-openwrt-linux-musl-
-endif
-export CROSS_COMPILE
+#ifndef CROSS_COMPILE
+#  CROSS_COMPILE = mips-openwrt-linux-musl-
+#endif
+#export CROSS_COMPILE
+#export MAKECMD=make --silent 
+#export ARCH=mips 
+export CROSS_COMPILE=mips-openwrt-linux-uclibc-
 
 # By default, optimization for size (-Os) is enabled, set below option
 # to n or remove it if you want only basic optimization (-O/-O1)
@@ -269,7 +272,8 @@ alfa-network_r36a:
 comfast_cf-e314n \
 comfast_cf-e320n_v2 \
 comfast_cf-e520n \
-comfast_cf-e530n:
+comfast_cf-e530n \
+comfast_cf-wr752ac_v1:
 	@$(call build,64,1,ETH_CONFIG=_s27)
 
 d-link_dir-505_a1:

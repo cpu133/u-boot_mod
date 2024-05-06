@@ -1,0 +1,250 @@
+root@OpenWrt:~# hexdump art.bin
+0000000 40a5 ef33 dcf8 40a5 ef33 dcfa ffff ffff
+0000010 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0000100 3130 3138 3138 3031 3235 3033 4130 3030
+0000110 3338 3500 ffff ffff ffff ffff ffff ffff
+0000120 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0000200 3132 3334 3536 3738 00ff ffff ffff ffff
+0000210 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0000300 925c 8ef5 ffff ffff ffff ffff ffff ffff
+0000310 ffff ffff ffff ffff ffff ffff ffff ffff
+*
+0001000 0202 40a5 ef33 dcf9 0000 0000 0000 0000
+0001010 0000 0000 0000 0000 0000 0000 0000 1f00
+0001020 3302 0000 0000 0400 3000 4d04 0300 08ff
+0001030 1100 0000 0010 0110 0022 2202 0050 0150
+0001040 0150 0100 0000 0000 0014 0064 7da4 af00
+0001050 ff00 0000 0000 0000 0000 0000 0000 000e
+0001060 0e0e 0300 2ce2 0002 0e1c 80c0 800c 80c0
+0001070 8000 0000 0000 0000 0000 0000 0000 0000
+0001080 0000 0000 0000 0000 0000 7089 a2f7 009d
+0001090 0000 00f9 009b 0000 00fa 0098 0000 00f4
+00010a0 0098 0000 00f6 0097 0000 00f7 0095 0000
+00010b0 0000 0000 0000 0000 0000 0000 0000 0000
+00010c0 0000 0070 a270 89a2 7089 a270 89a2 2626
+00010d0 2626 2626 2626 2020 201c 2020 201c 2020
+00010e0 201c 2020 201c 1c1a 201c 1c1c 2020 1c14
+00010f0 2020 201c 1c1a 201c 1c1c 2020 1c14 2020
+0001100 201c 1c1a 201c 1c1c 2020 1c14 2020 201c
+0001110 1c1a 201c 1c1c 2020 1c14 2020 201c 1c1a
+0001120 201c 1c1c 2020 1c14 2020 201c 1c1a 201c
+0001130 1c1c 2020 1c14 1112 1517 4142 4547 3132
+0001140 3537 7075 9da2 7075 a2ff 7075 a2ff 7a7f
+0001150 9398 7075 acb8 7075 ac00 7075 ac00 7a7f
+0001160 93a2 7075 ac00 7075 ac00 7075 ac00 7a7f
+
+
+
+
+
+root@OpenWrt:~# iw dev
+phy#1
+        Interface wlan1
+                ifindex 8
+                wdev 0x100000003
+                addr 40:a5:ef:33:dc:f9
+                ssid OpenWrt
+                type AP
+                channel 11 (2462 MHz), width: 20 MHz, center1: 2462 MHz
+                txpower 22.00 dBm
+                multicast TXQ:
+                        qsz-byt qsz-pkt flows   drops   marks   overlmt hashcol tx-bytes        tx-packets
+                        0       0       0       0       0       0       0       0               0
+phy#0
+        Interface wlan0
+                ifindex 9
+                wdev 0x3
+                addr 12:34:56:78:90:12
+                ssid OpenWrt
+                type AP
+                channel 36 (5180 MHz), width: 80 MHz, center1: 5210 MHz
+                txpower 23.00 dBm
+                multicast TXQ:                                                                                    
+                        qsz-byt qsz-pkt flows   drops   marks   overlmt hashcol tx-bytes        tx-packets        
+                        0       0       0       0       0       0       0       0               0                 
+root@OpenWrt:~# 
+
+
+
+root@OpenWrt:~# dmesg                                                                                             
+[    0.000000] Linux version 4.19.71 (joao@joao-Elcomasv-01) (gcc version 7.4.0 (OpenWrt GCC 7.4.0 r10992-9021f989
+[    0.000000] bootconsole [early0] enabled                                                                       
+[    0.000000] CPU0 revision is: 00019374 (MIPS 24Kc)                                                             
+[    0.000000] MIPS: machine is COMFAST CF-WR752AC                                                                
+[    0.000000] SoC: Qualcomm Atheros QCA9533 ver 2 rev 0                                                          
+[    0.000000] Determined physical RAM map:                                                                       
+[    0.000000]  memory: 08000000 @ 00000000 (usable)                                                              
+[    0.000000] Initrd not found or empty - disabling initrd                                                       
+[    0.000000] Primary instruction cache 64kB, VIPT, 4-way, linesize 32 bytes.                                    
+[    0.000000] Primary data cache 32kB, 4-way, VIPT, cache aliases, linesize 32 bytes                             
+[    0.000000] Zone ranges:                                                                                       
+[    0.000000]   Normal   [mem 0x0000000000000000-0x0000000007ffffff]                                             
+[    0.000000] Movable zone start for each node                                                                   
+[    0.000000] Early memory node ranges                                                                           
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000007ffffff]                                            
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x0000000007ffffff]                                   
+[    0.000000] On node 0 totalpages: 32768                                                                        
+[    0.000000]   Normal zone: 288 pages used for memmap                                                           
+[    0.000000]   Normal zone: 0 pages reserved                                                                    
+[    0.000000]   Normal zone: 32768 pages, LIFO batch:7                                                           
+[    0.000000] random: get_random_bytes called from start_kernel+0x98/0x4a8 with crng_init=0                      
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768                                                      
+[    0.000000] pcpu-alloc: [0] 0                                                                                  
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 32480                                       
+[    0.000000] Kernel command line: console=ttyS0,115200 rootfstype=squashfs,jffs2                                
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)                                     
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)                                       
+[    0.000000] Writing ErrCtl register=00000000                                                                   
+[    0.000000] Readback ErrCtl register=00000000                                                                  
+[    0.000000] Memory: 122496K/131072K available (4271K kernel code, 173K rwdata, 1008K rodata, 1196K init, 207K )
+[    0.000000] SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1                                         
+[    0.000000] NR_IRQS: 51                                                                                        
+[    0.000000] CPU clock: 650.000 MHz                                                                             
+[    0.000000] clocksource: MIPS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 5880801374 ns             
+[    0.000010] sched_clock: 32 bits at 325MHz, resolution 3ns, wraps every 6607641598ns                           
+[    0.008268] Calibrating delay loop... 432.53 BogoMIPS (lpj=2162688)                                            
+[    0.074882] pid_max: default: 32768 minimum: 301                                                               
+[    0.080022] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                                        
+[    0.086996] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                                   
+[    0.099875] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns   
+[    0.110329] futex hash table entries: 256 (order: -1, 3072 bytes)                                              
+[    0.116949] pinctrl core: initialized pinctrl subsystem                                                        
+[    0.123713] NET: Registered protocol family 16                                                                 
+[    0.136676] PCI host bridge /ahb/pcie-controller@180c0000 ranges:                                              
+[    0.143204]  MEM 0x0000000010000000..0x0000000013ffffff                                                        
+[    0.148708]   IO 0x0000000000000000..0x0000000000000000                                                        
+[    0.180643] PCI host bridge to bus 0000:00                                                                     
+[    0.185079] pci_bus 0000:00: root bus resource [mem 0x10000000-0x13ffffff]                                     
+[    0.192322] pci_bus 0000:00: root bus resource [io  0x0000]                                                    
+[    0.198208] pci_bus 0000:00: root bus resource [??? 0x00000000 flags 0x0]                                      
+[    0.205363] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]                         
+[    0.213772] pci 0000:00:00.0: [168c:0056] type 00 class 0x028000                                               
+[    0.213842] pci 0000:00:00.0: reg 0x10: [mem 0x00000000-0x001fffff 64bit]                                      
+[    0.213980] pci 0000:00:00.0: PME# supported from D0 D3hot                                                     
+[    0.215038] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00                                        
+[    0.215072] pci 0000:00:00.0: BAR 0: assigned [mem 0x10000000-0x101fffff 64bit]                                
+[    0.227399] clocksource: Switched to clocksource MIPS                                                          
+[    0.234272] NET: Registered protocol family 2                                                                  
+[    0.239900] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)                            
+[    0.248153] TCP established hash table entries: 1024 (order: 0, 4096 bytes)                                    
+[    0.255515] TCP bind hash table entries: 1024 (order: 0, 4096 bytes)                                           
+[    0.262255] TCP: Hash tables configured (established 1024 bind 1024)                                           
+[    0.269177] UDP hash table entries: 256 (order: 0, 4096 bytes)                                                 
+[    0.275365] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)                                            
+[    0.282547] NET: Registered protocol family 1                                                                  
+[    0.287206] PCI: CLS 0 bytes, default 32                                                                       
+[    0.291502] Crashlog allocated RAM at address 0x3f00000                                                        
+[    0.299291] workingset: timestamp_bits=14 max_order=15 bucket_order=1                                          
+[    0.314074] squashfs: version 4.0 (2009/01/31) Phillip Lougher                                                 
+[    0.320302] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.    
+[    0.348312] io scheduler noop registered                                                                       
+[    0.352456] io scheduler deadline registered (default)                                                         
+[    0.360417] pinctrl-single 1804002c.pinmux: 576 pins, size 72                                                  
+[    0.367753] Serial: 8250/16550 driver, 1 ports, IRQ sharing disabled                                           
+[    0.375283] console [ttyS0] disabled                                                                           
+[    0.379190] 18020000.uart: ttyS0 at MMIO 0x18020000 (irq = 9, base_baud = 1562500) is a 16550A                 
+[    0.388328] console [ttyS0] enabled                                                                            
+[    0.395875] bootconsole [early0] disabled                                                                      
+[    0.422977] m25p80 spi0.0: w25q128 (16384 Kbytes)                                                              
+[    0.427944] 5 fixed-partitions partitions found on MTD device spi0.0                                           
+[    0.434501] Creating 5 MTD partitions on "spi0.0":                                                             
+[    0.439509] 0x000000000000-0x000000010000 : "u-boot"                                                           
+[    0.445648] 0x000000010000-0x000000020000 : "art"                                                              
+[    0.451611] 0x000000020000-0x000000fe0000 : "firmware"                                                         
+[    0.461186] 2 uimage-fw partitions found on MTD device firmware                                                
+[    0.467317] Creating 2 MTD partitions on "firmware":                                                           
+[    0.472534] 0x000000000000-0x0000001c0000 : "kernel"                                                           
+[    0.478633] 0x0000001c0000-0x000000fc0000 : "rootfs"                                                           
+[    0.484590] mtd: device 4 (rootfs) set to be root filesystem                                                   
+[    0.492630] 1 squashfs-split partitions found on MTD device rootfs                                             
+[    0.499122] 0x000000590000-0x000000fc0000 : "rootfs_data"                                                      
+[    0.505724] 0x000000fe0000-0x000000ff0000 : "configs"                                                          
+[    0.511982] 0x000000ff0000-0x000001000000 : "nvram"                                                            
+[    0.519397] libphy: Fixed MDIO Bus: probed                                                                     
+[    0.878489] ag71xx 19000000.eth: Could not find valid phy node                                                 
+[    0.884863] ag71xx 1a000000.eth: invalid MAC address, using random address                                     
+[    1.567870] libphy: ag71xx_mdio: probed                                                                        
+[    1.573334] libphy: ar8xxx-mdio: probed                                                                        
+[    1.586863] switch0: Atheros AR8229 rev. 1 switch registered on mdio-bus.0                                     
+[    1.639299] ag71xx 1a000000.eth: connected to PHY at fixed-0:00 [uid=00000000, driver=Generic PHY]             
+[    1.649433] eth0: Atheros AG71xx at 0xba000000, irq 5, mode: gmii                                              
+[    1.657979] NET: Registered protocol family 10                                                                 
+[    1.668717] Segment Routing with IPv6                                                                          
+[    1.672635] NET: Registered protocol family 17                                                                 
+[    1.677311] 8021q: 802.1Q VLAN Support v1.8                                                                    
+[    1.695488] VFS: Mounted root (squashfs filesystem) readonly on device 31:4.                                   
+[    1.712687] Freeing unused kernel memory: 1196K                                                                
+[    1.717368] This architecture does not have kernel memory protection.                                          
+[    1.724061] Run /sbin/init as init process                                                                     
+[    2.547462] random: fast init done                                                                             
+[    2.867885] init: Console is alive                                                                             
+[    2.871731] init: - watchdog -                                                                                 
+[    4.565687] kmodloader: loading kernel modules from /etc/modules-boot.d/*                                      
+[    4.616152] kmodloader: done loading kernel modules from /etc/modules-boot.d/*                                 
+[    4.634308] init: - preinit -                                                                                  
+[    5.683811] random: jshn: uninitialized urandom read (4 bytes read)                                            
+[    5.818106] random: jshn: uninitialized urandom read (4 bytes read)                                            
+[    5.872813] random: jshn: uninitialized urandom read (4 bytes read)                                            
+[    9.321545] mount_root: jffs2 not ready yet, using temporary tmpfs overlay                                     
+[    9.359541] urandom-seed: Seed file not found (/etc/urandom.seed)                                              
+[    9.522335] procd: - early -                                                                                   
+[    9.525467] procd: - watchdog -                                                                                
+[   10.160541] procd: - watchdog -                                                                                
+[   10.164200] procd: - ubus -                                                                                    
+[   10.239717] urandom_read: 4 callbacks suppressed                                                               
+[   10.239728] random: ubusd: uninitialized urandom read (4 bytes read)                                           
+[   10.291330] random: ubusd: uninitialized urandom read (4 bytes read)                                           
+[   10.298572] random: ubusd: uninitialized urandom read (4 bytes read)                                           
+[   10.306313] procd: - init -                                                                                    
+[   11.026103] kmodloader: loading kernel modules from /etc/modules.d/*                                           
+[   11.157705] Loading modules backported from Linux version v5.3-rc4-0-gd45331b00ddb                             
+[   11.165536] Backport generated by backports.git v5.3-rc4-1-0-g4ec72687                                         
+[   11.185247] urngd: v1.0.0 started.                                                                             
+[   11.248586] xt_time: kernel timezone is -0000                                                                  
+[   11.423085] PPP generic driver version 2.4.2                                                                   
+[   11.438765] NET: Registered protocol family 24                                                                 
+[   11.532248] ath10k 4.19 driver, optimized for CT firmware, probing pci device: 0x56.                           
+[   11.558626] ath10k_pci 0000:00:00.0: enabling device (0000 -> 0002)                                            
+[   11.565422] ath10k_pci 0000:00:00.0: pci irq legacy oper_irq_mode 1 irq_mode 0 reset_mode 0                    
+[   11.580563] random: crng init done                                                                             
+[   12.018118] firmware ath10k!fwcfg-pci-0000:00:00.0.txt: firmware_loading_store: map pages failed               
+[   12.495513] firmware ath10k!QCA9888!hw2.0!ct-firmware-5.bin: firmware_loading_store: map pages failed          
+[   12.736844] firmware ath10k!QCA9888!hw2.0!ct-firmware-2.bin: firmware_loading_store: map pages failed          
+[   12.981468] firmware ath10k!QCA9888!hw2.0!firmware-6.bin: firmware_loading_store: map pages failed             
+[   13.941083] ath10k_pci 0000:00:00.0: qca9888 hw2.0 target 0x01000000 chip_id 0x00000000 sub 0000:0000          
+[   13.950684] ath10k_pci 0000:00:00.0: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 0                      
+[   13.974452] ath10k_pci 0000:00:00.0: firmware ver 10.4b-ct-9888-fW-012-c7b0f3f9 api 5 features mfp,peer-flow-c5
+[   14.314196] ath10k_pci 0000:00:00.0: board_file api 2 bmi_id 0:24 crc32 f228337a                               
+[   16.362365] ath10k_pci 0000:00:00.0: 10.4 wmi init: vdevs: 16  peers: 48  tid: 96                              
+[   16.370177] ath10k_pci 0000:00:00.0: msdu-desc: 2500  skid: 32                                                 
+[   16.421522] ath10k_pci 0000:00:00.0: wmi print 'P 48/48 V 16 K 144 PH 176 T 186  msdu-desc: 2500  sw-crypt: 0 '
+[   16.432871] ath10k_pci 0000:00:00.0: wmi print 'free: 117872 iram: 22772 sram: 26020'                          
+[   16.648249] ath10k_pci 0000:00:00.0: htt-ver 2.2 wmi-op 6 htt-op 4 cal pre-cal-file max-sta 32 raw 0 hwcrypto 1
+[   16.761680] ath: EEPROM regdomain: 0x0                                                                         
+[   16.761691] ath: EEPROM indicates default country code should be used                                          
+[   16.761694] ath: doing EEPROM country->regdmn map search                                                       
+[   16.761710] ath: country maps to regdmn code: 0x3a                                                             
+[   16.761717] ath: Country alpha2 being used: US                                                                 
+[   16.761720] ath: Regpair used: 0x3a                                                                            
+[   16.942603] ath: EEPROM regdomain: 0x0                                                                         
+[   16.942616] ath: EEPROM indicates default country code should be used                                          
+[   16.942620] ath: doing EEPROM country->regdmn map search                                                       
+[   16.942638] ath: country maps to regdmn code: 0x3a                                                             
+[   16.942644] ath: Country alpha2 being used: US                                                                 
+[   16.942647] ath: Regpair used: 0x3a                                                                            
+[   16.957662] ieee80211 phy1: Selected rate control algorithm 'minstrel_ht'                                      
+[   16.959711] ieee80211 phy1: Atheros AR9531 Rev:2 mem=0xb8100000, irq=13                                        
+[   16.970609] kmodloader: done loading kernel modules from /etc/modules.d/*                                      
+[   45.796228] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready                                                 
+[   46.828654] eth0: link up (1000Mbps/Full duplex)                                                               
+[   46.833480] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready                                            
+[   59.155722] jffs2_scan_eraseblock(): End of filesystem marker found at 0x0                                     
+[   59.169941] jffs2_build_filesystem(): unlocking the mtd device...                                              
+[   59.170037] done.                                                                                              
+[   59.178509] jffs2_build_filesystem(): erasing all blocks after the end marker...                               
+[   96.203650] done.                                                                                              
+[   96.213455] jffs2: notice: (1427) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum .
+[   96.601064] overlayfs: upper fs does not support tmpfile.	
